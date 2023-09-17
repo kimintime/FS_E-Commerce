@@ -26,7 +26,7 @@
 ## Setting Up the Backend (When it exists)
 - Create the appsettings.json file in the root of folder Backend. You can refer to the content of file example.json
 
-### Required to run the Library backend:
+### Required to run the backend:
 
 - .Net Core (this project is version 7)
 - dotnet ef commandline tools
