@@ -11,6 +11,7 @@ public class UserRegResponseDTO
     public string LastName { get; set; } = null!;
     public string? Username { get; set; }
     public string Email { get; set; } = null!;
+    public string Avatar { get; set; } = null!;
 
     public static UserRegResponseDTO FromUser(User user)
     {
@@ -20,7 +21,8 @@ public class UserRegResponseDTO
             FirstName = user.FirstName,
             LastName = user.LastName,
             Username = user.UserName,
-            Email = user.Email! 
+            Email = user.Email!,
+            Avatar = user.Avatar
         };
     }
 
