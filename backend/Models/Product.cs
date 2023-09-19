@@ -13,6 +13,8 @@ public class Product : BaseModel
     [MaxLength(500)]
     public string? Description { get; set; }
 
+    public string Image { get; set; } = null!;
+
     public ICollection<Category> Categories { get; set; } = null!;
 
     public ICollection<Item> Items { get; set; } = null!;
