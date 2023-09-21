@@ -22,6 +22,7 @@
     - [ ] Microsoft.EntityFrameworkCore
     - [ ] Microsoft.EntityFrameworkCore.Design
     - [ ] Npgsql.EntityFrameworkCore.PostgreSQL
+    - [X] System.IdentityModel.Tokens.Jwt
 
 ## Setting Up the Backend (When it exists)
 - Create the appsettings.json file in the root of folder Backend. You can refer to the content of file example.json
