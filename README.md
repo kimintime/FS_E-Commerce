@@ -19,10 +19,12 @@
 - Install all the needed packages:
     - [ ] AutoMapper
     - [ ] AutoMapper.Extensions.Microsoft.DependencyInjection
-    - [ ] Microsoft.EntityFrameworkCore
-    - [ ] Microsoft.EntityFrameworkCore.Design
-    - [ ] Npgsql.EntityFrameworkCore.PostgreSQL
+    - [X] Microsoft.EntityFrameworkCore
+    - [X] Microsoft.EntityFrameworkCore.Design
+    - [X] EFCore.NamingConventions
+    - [X] Npgsql.EntityFrameworkCore.PostgreSQL
     - [X] System.IdentityModel.Tokens.Jwt
+    - [X] Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
 ## Setting Up the Backend (When it exists)
 - Create the appsettings.json file in the root of folder Backend. You can refer to the content of file example.json
