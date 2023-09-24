@@ -19,5 +19,5 @@ public interface IUserService
     Task<User?> UpdateUserAsync(UpdateUserDTO request, string id);
     Task<bool> UpdatePasswordAsync(UpdatePasswordDTO request, string id);
 
-    Task<User?> DeleteAsync(string id);
+    Task<bool> DeleteUserAsync(string id);
 }
