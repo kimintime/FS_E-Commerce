@@ -8,31 +8,12 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 
-public class OrderService : IOrderService
+//Overrides of Create, Update, and Delete methods in order to set item availability and purchase date
+
+public class OrderService : CrudService<Order, OrderDTO>, IOrderService
 {
-    private readonly AppDbContext _dbContext;
-    
-    public OrderService(AppDbContext dbContext)
+    public OrderService(AppDbContext dbContext) : base(dbContext)
     {
-        _dbContext = dbContext;
-    }
-
-    public async Task<ICollection<Order>> GetAllAsyncPagination(int page = 1, int pageSize = 25)
-    {
-        return await _dbContext.Orders
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
-    }
-
-    public async Task<ICollection<Order>> GetAllAsync()
-    {
-        return await _dbContext.Orders.ToListAsync();
-    }
-
-    public async Task<Order?> GetAsync(int id)
-    {
-        return await _dbContext.FindAsync<Order>(id);
     }
 
     public async Task<ICollection<Order>> GetOrdersByUserAsync(int userId)
@@ -43,7 +24,7 @@ public class OrderService : IOrderService
             .ToListAsync();
     }
 
-    public async Task<Order?> CreateAsync(OrderDTO request)
+    public override async Task<Order?> CreateAsync(OrderDTO request)
     {
         var user = await _dbContext.Users.SingleOrDefaultAsync(user => user.Id == request.UserId);
 
@@ -71,7 +52,7 @@ public class OrderService : IOrderService
         return order;
     }
 
-    public async Task<Order?> UpdateAsync(int id, OrderDTO request)
+    public override async Task<Order?> UpdateAsync(int id, OrderDTO request)
     {
         var order = await _dbContext.Orders.SingleOrDefaultAsync(loan => loan.Id == id);
 
@@ -86,7 +67,7 @@ public class OrderService : IOrderService
         return order;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public override async Task<bool> DeleteAsync(int id)
     {
         var order = await _dbContext.Orders.FindAsync(id);
 

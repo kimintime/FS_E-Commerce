@@ -18,7 +18,7 @@ public class CrudService<TModel, TDto> : ICrudService<TModel, TDto>
         _dbContext = dbContext;
     }
 
-    public async Task<TModel?> CreateAsync(TDto request)
+    public virtual async Task<TModel?> CreateAsync(TDto request)
     {
         var item = new TModel();
 
@@ -52,7 +52,7 @@ public class CrudService<TModel, TDto> : ICrudService<TModel, TDto>
             .ToListAsync();
     }
 
-    public async Task<TModel?> UpdateAsync(int id, TDto request)
+    public virtual async Task<TModel?> UpdateAsync(int id, TDto request)
     {
         var item = await GetAsync(id);
 
@@ -66,7 +66,7 @@ public class CrudService<TModel, TDto> : ICrudService<TModel, TDto>
         return item;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public virtual async Task<bool> DeleteAsync(int id)
     {
         var item = await GetAsync(id);
         if (item is null)
